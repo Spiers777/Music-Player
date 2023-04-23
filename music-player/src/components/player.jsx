@@ -21,34 +21,44 @@ const Player = ({audioID}) => {
         })
 	    .catch(err => console.error(err));
     }
-
     const handlePause = () => {
         if(!playing){document.getElementById("audioPlayer").play();setPlaying(true);}
         else if(playing){document.getElementById("audioPlayer").pause();setPlaying(false);}
     }
-
     const handleTime = () => {
         let seconds = Math.trunc(document.getElementById("audioPlayer").currentTime)
         let minutes = ~~(seconds / 60);
         let extraSeconds = seconds % 60;
         if(extraSeconds < 10){extraSeconds = "0" + extraSeconds}
-        console.log(extraSeconds)
         setTime(`${minutes.toString()}:${extraSeconds.toString()}`);
     }
-
     useEffect(() => {
         fetchSong();
     }, []);
-    return (
-    <div id="player">
-        <audio controls src={audioData.preview} onTimeUpdate={handleTime} id="audioPlayer">
-            Your browser does not support the audio tag!
-        </audio>
-        Playing: {audioData.title}
-        <button onClick={handlePause}>{playing ? (<p>Pause</p>) : (<p>Play</p>)}</button>
-        {time}
-    </div>
-    );
+
+    if (audioData.album === undefined) {
+        return <></>;
+    }
+    else{
+        return (
+            <div id="player">
+                <audio src={audioData.preview} onTimeUpdate={handleTime} id="audioPlayer">
+                    Your browser does not support the audio tag!
+                </audio>
+                <div>
+                    <img src={audioData.album.cover_medium} alt="Album Cover" />
+                </div>
+                <div>
+                    <h1>{audioData.title}</h1>
+                    <h2>{audioData.artist.name}</h2>
+                    <span>{time}</span>/<span>0:29</span>
+                </div>
+                <div>
+                    <button onClick={handlePause}>{playing ? (<p>Pause</p>) : (<p>Play</p>)}</button>
+                </div>
+            </div>
+        );
+    }
 };
 
 export default Player;
