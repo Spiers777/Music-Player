@@ -24,6 +24,9 @@ const Player = ({audioID}) => {
         if(!playing){document.getElementById("audioPlayer").play();setPlaying(true);}
         else if(playing){document.getElementById("audioPlayer").pause();setPlaying(false);}
     }
+    const handleAutoStart = () => {
+        document.getElementById("audioPlayer").play();setPlaying(true);
+    }
     const handleTime = () => {
         let seconds = Math.trunc(document.getElementById("audioPlayer").currentTime)
         let minutes = ~~(seconds / 60);
@@ -34,9 +37,6 @@ const Player = ({audioID}) => {
     useEffect(() => {
         fetchSong();
         setPlaying(false);
-        if (audioData.album !== undefined) {
-            handlePause();
-        }
     }, [audioID]);
 
     if (audioData.album === undefined) {
@@ -45,7 +45,7 @@ const Player = ({audioID}) => {
     else{
         return (
             <div id="player">
-                <audio src={audioData.preview} onTimeUpdate={handleTime} id="audioPlayer">
+                <audio src={audioData.preview} onCanPlay={handleAutoStart} onTimeUpdate={handleTime} id="audioPlayer">
                     Your browser does not support the audio tag!
                 </audio>
                 <div>
