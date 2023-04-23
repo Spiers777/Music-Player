@@ -16,7 +16,6 @@ const Player = ({audioID}) => {
         fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${audioID}`, options)
 	    .then(response => response.json())
 	    .then(response => {
-            console.log(response);
             setAudioData(response)
         })
 	    .catch(err => console.error(err));
@@ -34,7 +33,11 @@ const Player = ({audioID}) => {
     }
     useEffect(() => {
         fetchSong();
-    }, []);
+        setPlaying(false);
+        if (audioData.album !== undefined) {
+            handlePause();
+        }
+    }, [audioID]);
 
     if (audioData.album === undefined) {
         return <></>;
