@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../style/search.scss'
 
 const options = {
 	method: 'GET',
@@ -20,17 +21,22 @@ const Search = (props) => {
 	    .catch(err => console.error(err));
     }
     return (
-        <div>
-            <input id="search" onChange={fetchSearch} />
-            {searchResponse.data === undefined ? (<></>) : (<>
-                {Object.keys(searchResponse.data).map((obj, i) => (
-                    <a href="#" onClick={() => {props.selectedAudio(searchResponse.data[i].id)}}>
-                        <img src={searchResponse.data[i].album.cover_small}></img>
-                        <p>{searchResponse.data[i].title}</p>
-                        <p>By {searchResponse.data[i].artist.name}</p>
-                    </a>
-                ))}
-            </>)}
+        <div className='searchContainer'>
+            <input id="search" placeholder="Search For A Song" className='searchBox' onChange={fetchSearch} />
+            <div className='results'>
+                {searchResponse.data === undefined ? (<></>) : (<>
+                    {Object.keys(searchResponse.data).map((obj, i) => (
+                        <a className="result" href="#" onClick={() => {props.selectedAudio(searchResponse.data[i].id)}}>
+                            <img src={searchResponse.data[i].album.cover_medium}></img>
+                            <div className="glass"></div>
+                            <div className="titleBlock">
+                                <p>{searchResponse.data[i].title}</p>
+                                <p>By {searchResponse.data[i].artist.name}</p>
+                            </div>
+                        </a>
+                    ))}
+                </>)}
+            </div>
         </div>
     )
 }

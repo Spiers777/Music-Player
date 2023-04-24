@@ -1,0 +1,32 @@
+.playerCont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .albumCover {
+        display: flex;
+        position: relative;
+        justify-content:center;align-items:center;
+        width: 100%;
+        aspect-ratio: 1/1;
+        img {
+            width: 70%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            border-radius: 20px;
+        }
+    }
+    .albumCover::before {
+        content: "";
+        position: absolute;
+        width : 100%;
+        aspect-ratio: 1/1;
+        z-index: -1;
+        background-image: var(--background-url);
+        background-size: cover;
+        filter:blur(6px);
+    }
+}

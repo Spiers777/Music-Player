@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../style/player.scss'
 
 const options = {
 	method: 'GET',
@@ -44,11 +45,11 @@ const Player = ({audioID}) => {
     }
     else{
         return (
-            <div id="player">
+            <div id="player" className="playerCont">
                 <audio src={audioData.preview} onCanPlay={handleAutoStart} onTimeUpdate={handleTime} id="audioPlayer">
                     Your browser does not support the audio tag!
                 </audio>
-                <div>
+                <div class="albumCover" style={{"--background-url": `url("${audioData.album.cover_small}")`}}>
                     <img src={audioData.album.cover_medium} alt="Album Cover" />
                 </div>
                 <div>

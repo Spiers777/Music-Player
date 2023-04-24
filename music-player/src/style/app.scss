@@ -1,0 +1,17 @@
+* {margin:0;padding:0;text-decoration:none;border:none;}
+
+:root {
+    --background: #1D1D1D;
+    --highlight: #fff;
+    --shadow: #191919;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--highlight);
+    display: flex;
+    justify-content: center;
+    .App {
+        max-width: 500px;
+    }
+}

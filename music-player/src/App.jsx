@@ -1,6 +1,7 @@
 import Player from "./components/player";
 import Search from "./components/search";
 import React, { useState } from 'react';
+import './style/app.scss';
 
 function App() {
   const [audioID, setAudioID] = useState(0);
