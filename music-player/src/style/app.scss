@@ -12,6 +12,7 @@ body {
     display: flex;
     justify-content: center;
     .App {
-        max-width: 1000px;
+        width: min(500px, 100vw);
+        max-width: 500px;
     }
 }
