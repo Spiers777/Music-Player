@@ -11,8 +11,10 @@ body {
     color: var(--highlight);
     display: flex;
     justify-content: center;
+    scroll-behavior: smooth;
     .App {
         width: min(500px, 100vw);
         max-width: 500px;
+        overflow: hidden;
     }
 }
