@@ -1,4 +1,7 @@
-* {margin:0;padding:0;text-decoration:none;border:none;}
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans');
+
+* {margin:0;padding:0;text-decoration:none;border:none;font-family:"Nunito";}
 
 :root {
     --background: #1D1D1D;
@@ -9,12 +12,26 @@
 body {
     background-color: var(--background);
     color: var(--highlight);
+    height: 100vh;
     display: flex;
     justify-content: center;
-    scroll-behavior: smooth;
+    overflow: hidden;
     .App {
-        width: min(500px, 100vw);
-        max-width: 500px;
+        width: 100vw;
+        height: 100vh;
+        display:flex;
+        flex-direction: column;
         overflow: hidden;
+    }
+    @media(min-width:769px){
+        align-items: center;
+        .App {
+            flex-direction: row;
+            width: 75vw;
+            height: 70vh;
+            justify-content: space-between;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+            border-radius: 20px;
+        }
     }
 }

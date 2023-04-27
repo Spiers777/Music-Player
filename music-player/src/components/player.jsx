@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../style/player.scss'
+import '../style/player.scss';
 
 const options = {
 	method: 'GET',
@@ -41,24 +41,24 @@ const Player = ({audioID}) => {
     }, [audioID]);
 
     if (audioData.album === undefined) {
-        return <></>;
-    }
-    else{
+        return (
+            <div id="player" className="playerCont">
+            </div>
+        )
+    } else{
         return (
             <div id="player" className="playerCont">
                 <audio src={audioData.preview} onCanPlay={handleAutoStart} onTimeUpdate={handleTime} id="audioPlayer">
                     Your browser does not support the audio tag!
                 </audio>
-                <div class="albumCover" style={{"--background-url": `url("${audioData.album.cover_small}")`}}>
+                <div className="albumCover" style={{"--background-url": `url("${audioData.album.cover_small}")`}}>
                     <img src={audioData.album.cover_medium} alt="Album Cover" />
                 </div>
-                <div>
-                    <h1>{audioData.title}</h1>
-                    <h2>{audioData.artist.name}</h2>
-                    <span>{time}</span>/<span>0:29</span>
-                </div>
-                <div>
-                    <button onClick={handlePause}>{playing ? (<p>Pause</p>) : (<p>Play</p>)}</button>
+                <div className="audioDetails">
+                    <h1 className="audioTitle">{audioData.title}</h1>
+                    <h2 className="audioArtist">{audioData.artist.name}</h2>
+                    <span className="progress"><span>{time}</span>/<span>0:29</span></span>
+                    <button className="playPause" onClick={handlePause}>{playing ? (<p>Pause</p>) : (<p>Play</p>)}</button>
                 </div>
             </div>
         );

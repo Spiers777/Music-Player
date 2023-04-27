@@ -19,14 +19,59 @@
             border-radius: 20px;
         }
     }
-    .albumCover::before {
-        content: "";
-        position: absolute;
-        width : 100%;
-        aspect-ratio: 1/1;
-        z-index: -1;
-        background-image: var(--background-url);
-        background-size: cover;
-        filter:blur(6px);
+    .audioDetails{
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 3%;
+        .audioTitle {
+            font-size: calc(0.6vw + 18px);
+            line-height: calc(0.6vw + 20px);
+        }
+        .audioArtist {
+            font-size: calc(0.4vw + 14px);
+            line-height: calc(0.4vw + 16px);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .playPause {
+            width: 50px;
+            height: 50px;
+            border-radius: 1000000px;
+            margin-top: 5%;
+        }
+    }
+    @media(max-width:768px){
+        .albumCover::before {
+            content: "";
+            position: absolute;
+            width : 100%;
+            aspect-ratio: 1/1;
+            z-index: -1;
+            background-image: var(--background-url);
+            background-size: cover;
+            filter:blur(6px);
+        }
+        .audioDetails {
+            margin-top: -2%;
+        }
+    }
+}
+
+@media(min-width:769px){
+    .playerCont {
+        width: 50%;
+        height: 100%;
+        padding-top: 3vh;
+        display: flex;
+        .albumCover {
+            height: 60%;
+            img {
+                height: 100%;
+                width: auto;
+                aspect-ratio: 1/1;
+            }
+        }
     }
 }
