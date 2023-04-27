@@ -35,6 +35,10 @@ const Player = ({audioID}) => {
         if(extraSeconds < 10){extraSeconds = "0" + extraSeconds}
         setTime(`${minutes.toString()}:${extraSeconds.toString()}`);
     }
+    const handleVolume = () => {
+        console.log(document.getElementById("volumeSlider").value)
+        document.getElementById("audioPlayer").volume = document.getElementById("volumeSlider").value/100
+    }
     useEffect(() => {
         fetchSong();
         setPlaying(false);
@@ -59,6 +63,7 @@ const Player = ({audioID}) => {
                     <h2 className="audioArtist">{audioData.artist.name}</h2>
                     <span className="progress"><span>{time}</span>/<span>0:29</span></span>
                     <button className="playPause" onClick={handlePause}>{playing ? (<p>Pause</p>) : (<p>Play</p>)}</button>
+                    <input id="volumeSlider" type="range" onChange={handleVolume}></input>
                 </div>
             </div>
         );
