@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "99309e03a76d84df329ad06c442486fb",
+    "revision": "19b1186658c1954efcc83b52a752273e",
     "url": "/Music-Player/index.html"
   },
   {
-    "revision": "e132584700f73618137f",
-    "url": "/Music-Player/static/css/main.ca5e3232.chunk.css"
+    "revision": "555898883eb9fe85a894",
+    "url": "/Music-Player/static/css/main.e148eb4e.chunk.css"
   },
   {
     "revision": "dea9ef75d06e7bf336a6",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Music-Player/static/js/2.81b60536.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e132584700f73618137f",
+    "revision": "555898883eb9fe85a894",
     "url": "/Music-Player/static/js/main.3e0ee3a1.chunk.js"
   },
   {
