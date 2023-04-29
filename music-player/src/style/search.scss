@@ -89,7 +89,7 @@
     .searchContainer {
         transition: 600ms ease;
         position: absolute;
-        top: calc(var(--searchPosition)*(100vh - 3vh - 60px)); left: 0;
+        top: calc(var(--searchPosition)*(100vh - 3vh - 60px - 48px)); left: 0;
         background-color: var(--shadow);
         z-index: 0;
     }
